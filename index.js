@@ -1,11 +1,11 @@
 'use strict';
 
 const hexChars = 'a-f\\d';
-const match3or4Hex = `#?[${hexChars}]{3}[${hexChars}]?`;
-const match6or8Hex = `#?[${hexChars}]{6}([${hexChars}]{2})?`;
+const match3or4Hex = '#?[${hexChars}]{3}[${hexChars}]?';
+const match6or8Hex = '#?[${hexChars}]{6}([${hexChars}]{2})?';
 
-const nonHexChars = new RegExp(`[^#${hexChars}]`, 'gi');
-const validHexSize = new RegExp(`^${match3or4Hex}$|^${match6or8Hex}$`, 'i');
+const nonHexChars = new RegExp('[^#${hexChars}]', 'gi');
+const validHexSize = new RegExp('^${match3or4Hex}$|^${match6or8Hex}$', 'i');
 
 module.exports = function (hex, options = {}) {
 	if (typeof hex !== 'string' || nonHexChars.test(hex) || !validHexSize.test(hex)) {
